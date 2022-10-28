@@ -15,7 +15,7 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
@@ -30,15 +30,15 @@ const MENU_ITEMS = [
         icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
         title: 'English',
         children: {
-            title: 'language',
+            title: 'Language',
             data: [
                 {
-                    type: 'langage',
+                    type: 'Langage',
                     code: 'en',
                     title: 'English',
                 },
                 {
-                    type: 'langage',
+                    type: 'Langage',
                     code: 'vi',
                     title: 'Tieng Việt',
                 },
@@ -94,9 +94,10 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo_link')}>
+                <Link to={config.routes.home} className={cx('logo_link')}>
                     <img src={images.logo} alt="Tiktok"></img>
                 </Link>
+
                 <Search></Search>
                 <div className={cx('action')}>
                     {currentUser ? (
