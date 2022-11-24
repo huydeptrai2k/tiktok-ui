@@ -1,0 +1,83 @@
+.list-video {
+    display: flex;
+
+    flex-direction: column;
+    margin-right: 16px;
+    margin-left: 16px;
+
+    padding: 24px 0;
+    position: relative;
+}
+.container {
+    padding: 20px 0px;
+    border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 692px;
+}
+.video-content {
+    display: flex;
+}
+.video {
+    height: 600px;
+    margin-left: 62px;
+    margin-top: 5px;
+    border-radius: 1rem;
+    max-width: 600px;
+    object-fit: cover;
+}
+.list-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 20px;
+}
+.icon-content {
+    text-align: center;
+}
+.icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(217, 226, 226);
+}
+
+.header {
+    display: flex;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.info {
+    margin-left: 12px;
+}
+.info-item {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.nickname {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.name {
+}
+.music-name {
+    align-items: center;
+    margin-left: 5px;
+}
+.btn-follow {
+    min-width: 88px;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+}

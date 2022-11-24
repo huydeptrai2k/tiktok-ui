@@ -1,0 +1,31 @@
+.wrapper {
+    width: 100%;
+    border-top: 1px solid #e3e3e4;
+    padding-top: 16px;
+    padding-left: 8px;
+}
+.menu-item {
+    margin-bottom: 8px;
+}
+.design {
+    color: rgba(84, 84, 84, 0.92);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+}
+.item {
+    color: rgba(84, 84, 84, 0.92);
+
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+    &:hover {
+        text-decoration: underline;
+    }
+}

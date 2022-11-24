@@ -1,5 +1,67 @@
 .wrapper {
-    width: 356px;
+    position: relative;
+    height: 876px;
+    top: 0px;
+    padding-left: 8px;
     padding: 20px 0px 26px 8px;
-    margin-left: -18px;
+
+    padding: 20px 0 26px;
+}
+.sidebar {
+    position: fixed;
+    max-width: 356px;
+
+    &:hover {
+        overflow-y: auto; // cuộn
+    }
+}
+.menu-login {
+    position: relative;
+    padding: 20px 8px 24px 8px;
+    margin: 0;
+}
+.title-login {
+    color: rgba(46, 33, 33, 0.5);
+    font-size: 16px;
+    line-height: 22px;
+}
+.btn-login {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(255, 59, 92, 1);
+    border-color: rgba(255, 59, 92, 1) !important;
+    background-color: rgba(255, 255, 255, 0.08);
+    min-width: 160px;
+    min-height: 48px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+    font-family: SofiaPro, PingFangSC, sans-serif;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 6px 8px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: 20px;
+    width: 100%;
+    &:hover {
+        background-color: var(--primary);
+        color: var(--white);
+    }
 }
