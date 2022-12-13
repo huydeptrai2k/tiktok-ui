@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import styles from './Profile.module.scss';
 import Image from '~/components/Image';
 
-import { ShareIcon } from '~/components/Icons';
+import { PauseIcon, ShareIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faEllipsis, faLock } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 function Profile() {
     const [userResult, setUserResult] = useState([]);
     const location = useLocation();
+
     useEffect(() => {
         // anUserService.getAnUser(location.state).then((data) => {
         //     setUserResult(data);
@@ -23,7 +24,7 @@ function Profile() {
             .get(`https://tiktok.fullstack.edu.vn/api/users${location.pathname}`)
             .then(function (response) {
                 // handle success
-                console.log(response.data.data.videos);
+                // console.log(response.data.data.videos);
                 setUserResult(response.data.data);
             })
             .catch(function (error) {
@@ -34,6 +35,75 @@ function Profile() {
                 // always executed
             });
     }, [location]);
+
+    useEffect(() => {
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        const tabs = $$('.tab-item');
+        const panes = $$('.list-video');
+        const tabActive = $('.tab-item.active');
+        const line = $('.tab-line');
+
+        requestIdleCallback(function () {
+            line.style.left = tabActive.offsetLeft + 'px';
+            line.style.width = tabActive.offsetWidth + 'px';
+        });
+
+        tabs.forEach((tab, index) => {
+            const pane = panes[index];
+
+            tab.onclick = function () {
+                $('.tab-item.active').classList.remove('active');
+                $('.list-video.active').classList.remove('active');
+                line.style.left = this.offsetLeft + 'px';
+                line.style.width = this.offsetWidth + 'px';
+
+                this.classList.add('active');
+
+                pane.classList.add('active');
+            };
+        });
+    }, []);
+
+    const delay = async () => {
+        try {
+            const res = await setTimeout(() => {
+                const videos = document.querySelectorAll('.video');
+                // console.log('checkevengggt', videos);
+                for (let i = 0; i < videos.length; i++) {
+                    // console.log('checkevent', videos[i]);
+                    videos[i].addEventListener('mouseenter', function (e) {
+                        this.play();
+                        this.muted = false;
+                    });
+                    videos[i].addEventListener('mouseout', function (e) {
+                        this.pause();
+                    });
+                }
+            }, 5000);
+            return res;
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    delay();
+    // useLayoutEffect(() => {
+    //     setTimeout(() => {
+    //         const videos = document.querySelectorAll('.video');
+    //         console.log('checkevengggt', videos);
+    //         for (let i = 0; i < videos.length; i++) {
+    //             // console.log('checkevent', videos[i]);
+    //             videos[i].addEventListener('mouseenter', function (e) {
+    //                 this.play();
+    //                 this.muted = false;
+    //             });
+    //             videos[i].addEventListener('mouseout', function (e) {
+    //                 this.pause();
+    //             });
+    //         }
+    //     }, 3000);
+    // }, []);
+
     return (
         <div className={cx('layout-content')}>
             <div className={cx('layout-header')}>
@@ -85,30 +155,37 @@ function Profile() {
             </div>
             <div className={cx('layout-main')}>
                 <div className={cx('menu-tab')}>
-                    <div className={cx('videos-tab')}>
+                    <div className={'tab-item active'}>
                         <span>Videos</span>
                     </div>
-                    <div className={cx('likes-tab')}>
+                    <div className={'tab-item '}>
                         <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
-                        <span>Liked</span>
+                        <span> Liked</span>
                     </div>
+                    <div className={'tab-line'}></div>
                 </div>
-                <div className={cx('list-video')}>
+                <div className={'list-video active'}>
                     <div className={cx('list-item')}>
                         {userResult.videos &&
                             userResult.videos.map((item) => (
                                 <div className={cx('item')} key={item.id}>
                                     <Link to={'#'}>
                                         <video
-                                            className={cx('video')}
+                                            className={'video'}
                                             poster={item.thumb_url}
                                             src={item.file_url}
+                                            muted
                                         ></video>
+                                        <div className={cx('view-video')}>
+                                            <PauseIcon></PauseIcon>
+                                            <strong className={cx('view')}>{item.views_count}</strong>
+                                        </div>
                                     </Link>
                                 </div>
                             ))}
                     </div>
                 </div>
+                <div className={'list-video'}></div>
             </div>
         </div>
     );

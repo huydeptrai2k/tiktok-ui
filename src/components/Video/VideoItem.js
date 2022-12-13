@@ -5,6 +5,7 @@ import styles from './Video.module.scss';
 import { faComment, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Button';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 function VideoItem({ data }) {
@@ -67,9 +68,11 @@ function VideoItem({ data }) {
                 </div>
             </div>
             <div className={cx('video-content')}>
-                <video className={cx('video')} poster={data.thumb_url} controls autoPlay muted playsInline loop>
-                    <source src={data.file_url} type="video/mp4"></source>
-                </video>
+                <Link to={config.routes.video}>
+                    <video className={cx('video')} poster={data.thumb_url} autoPlay controls muted playsInline loop>
+                        <source src={data.file_url} type="video/mp4"></source>
+                    </video>
+                </Link>
                 <div className={cx('list-icon')}>
                     <div className={cx('icon-content')}>
                         <div className={cx('icon')}>

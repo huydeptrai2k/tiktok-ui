@@ -1,16 +1,15 @@
 .wrapper {
     position: relative;
-    height: 876px;
+
     top: 0px;
     padding-left: 8px;
     padding: 20px 0px 26px 8px;
-
-    padding: 20px 0 26px;
 }
 .sidebar {
     position: fixed;
     max-width: 356px;
-
+    height: 880px;
+    overflow-y: none;
     &:hover {
         overflow-y: auto; // cuộn
     }

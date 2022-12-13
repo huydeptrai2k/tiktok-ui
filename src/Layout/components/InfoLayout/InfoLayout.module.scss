@@ -42,10 +42,10 @@
     z-index: 99;
     padding-right: 8px;
 
-    overflow-y: none;
-    &:hover {
-        overflow-y: auto; // cuộn
-    }
+    // overflow-y: none;
+    // &:hover {
+    //     overflow-y: auto; // cuộn
+    // }
 }
 @media screen and (min-width: 904px) and (max-width: 1271px) {
     .content {

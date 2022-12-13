@@ -202,25 +202,7 @@
     height: 44px;
     margin-bottom: 8px;
 }
-.videos-tab,
-.likes-tab {
-    font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 25px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 1 0%;
-    height: 44px;
-    cursor: pointer;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.9);
-}
-.list-video {
-    width: 100%;
-}
+
 .list-item {
     display: grid;
     grid-gap: 24px 16px;
@@ -238,9 +220,24 @@
     justify-content: center;
     border-radius: 4px;
 }
-.video {
+
+.view-video {
+    position: absolute;
     width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    object-fit: cover;
+    bottom: 0;
+
+    // height: 100px;
+    // background: linear-gradient(180deg, rgba(22, 24, 35, 0.0001) 2.92%, rgba(22, 24, 35, 0.5) 98.99%);
+    padding: 67px 13px 17px;
+    padding-top: 67px;
+}
+.view {
+    position: absolute;
+    color: rgba(255, 255, 255, 1);
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 600;
+    vertical-align: middle;
+    font-size: 16px;
+    margin-left: 4px;
+    margin-bottom: 6px;
 }

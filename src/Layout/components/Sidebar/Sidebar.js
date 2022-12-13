@@ -33,7 +33,7 @@ function Sidebar(isLogerIn) {
         userService
             .getSuggested(page, PER_PAGE)
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 setSuggestedUsers((prevUsers) => [...prevUsers, ...data]);
             })
             .catch((error) => console.log(error));
